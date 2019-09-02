@@ -1,14 +1,15 @@
 package zendesk
 
 import (
-	"gopkg.in/resty.v0"
-	"fmt"
 	"encoding/json"
+	"fmt"
+
+	"gopkg.in/resty.v0"
 )
 
 type Client struct {
-	domain string
-	client *resty.Client
+	domain     string
+	client     *resty.Client
 	apiVersion string
 }
 
@@ -59,5 +60,5 @@ func (c Client) delete(path string) (*resty.Response, error) {
 }
 
 func (c Client) parseResponseToInterface(response *resty.Response, v interface{}) {
-	json.Unmarshal(response.Body(), &v)
+	json.Unmarshal(response.Body, &v)
 }
