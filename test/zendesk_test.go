@@ -2,7 +2,7 @@ package test
 
 import (
 	"testing"
-	"github.com/hellofresh/zendesk-go"
+	"github.com/profects/zendesk-go"
 )
 
 var client = zendesk.FromToken(

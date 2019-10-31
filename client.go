@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"gopkg.in/resty.v0"
+	"github.com/go-resty/resty/v2"
 )
 
 type Client struct {
@@ -60,5 +60,5 @@ func (c Client) delete(path string) (*resty.Response, error) {
 }
 
 func (c Client) parseResponseToInterface(response *resty.Response, v interface{}) {
-	json.Unmarshal(response.Body, &v)
+	json.Unmarshal(response.Body(), &v)
 }
